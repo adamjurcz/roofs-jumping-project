@@ -21,7 +21,7 @@ private:
 	std::vector<Vertex>vertices;
 	std::vector<GLuint>indices;
 
-	VAO vao;
+	//VAO vao;
 	
 public:
 	
