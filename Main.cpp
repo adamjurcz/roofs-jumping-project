@@ -6,6 +6,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+
 #include "ShaderProgram.h"
 #include "Textures.h"
 #include "WorldTransform.h"
@@ -14,18 +15,22 @@
 #include "VAO.h"
 #include "VBO.h"
 #include "EBO.h"
+#include "Model.h"
 
 #include "myCube.h"
 
 
 ShaderProgram* lightShader;
 ShaderProgram* blockShader;
+ShaderProgram* tryShader;
+
 VAO* vao;
 Skybox* skybox;
 GLuint uniID;
 GLuint texID;
 Textures* texture;
-glm::vec3 lightPos = glm::vec3(0.0f, -0.3f, -3.5f);
+Model* model;
+glm::vec3 lightPos = glm::vec3(0.0f, 1.0f, -3.5f);
 
 const int _HEIGHT = 1000;
 const int _WIDTH = 1000;
@@ -52,6 +57,7 @@ void initOpenGLProgram(GLFWwindow* window) {
 	
 	lightShader = new ShaderProgram("v_light_cube.glsl", NULL, "f_light_cube.glsl");
 	blockShader = new ShaderProgram("v_simple.glsl", NULL, "f_simple.glsl");
+	tryShader = new ShaderProgram("v_try.glsl", NULL, "f_try.glsl");
 	skybox = new Skybox();
 	
 	vao = new VAO[2];
@@ -65,8 +71,8 @@ void initOpenGLProgram(GLFWwindow* window) {
 	vbo0.unbind();
 
 
-	texture = new Textures("resources/facade.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB);
-	texture->texUnit(*blockShader, "texture0");
+	texture = new Textures("resources/facade.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, "diff");
+	texture->texUnit(*blockShader, "texture0", GL_TEXTURE0);
 
 	vao[1].bind();
 	VBO vbo1(verticesCube, sizeof(verticesCube));
@@ -74,7 +80,7 @@ void initOpenGLProgram(GLFWwindow* window) {
 	vao[1].unbind();
 	vbo1.unbind();
 
-	
+	model = new Model("resources/cat/12221_Cat_v1_l3.obj");
 
 }
 
@@ -97,7 +103,7 @@ void drawScene(GLFWwindow* window) {
 
 	camera.input(window, deltaTime);
 
-	t += speed*deltaTime*100;
+	t += speed * deltaTime * 100;
 
 	WorldTransform worldTransform;
 	worldTransform.setScale(glm::vec3(1.0f, 1.0f, 1.0f));
@@ -117,15 +123,26 @@ void drawScene(GLFWwindow* window) {
 	blockShader->setMat4("P", proj);
 	blockShader->setMat4("V", view);
 	blockShader->setMat4("M", worldTransform.getWorld());
-	
+
 	texture->bind();
 	vao[0].bind();
 	glDrawArrays(GL_TRIANGLES, 0, myCubeVertexCount);
 	texture->unbind();
 	vao[0].unbind();
+
+	tryShader->activate();
+	tryShader->setMat4("P", proj);
+	tryShader->setMat4("V", view);
+
+	glm::mat4 catModel = glm::rotate(worldTransform.getWorld(), 90.0f * 180.0f / 3.1415f, glm::vec3(0.0f, 0.0f, 1.0f));
+	catModel = glm::translate(catModel, glm::vec3(0.0f, 4.0f, 0.0f));
+	catModel = glm::scale(catModel, glm::vec3(0.3f, 0.3f, 0.3f));
+
+	tryShader->setMat4("M", catModel);
+	model->draw(*tryShader);
 	////////////////////
 	glm::mat4 model2 = glm::rotate(worldTransform.getWorld(), t, glm::vec3(0.0f, 1.0f, 0.0f));
-	model2 = glm::translate(model2, glm::vec3(0.0f, 0.0f, -1.0f));
+	model2 = glm::translate(model2, glm::vec3(0.0f, 1.0f, -2.5f));
 	model2 = glm::scale(model2, glm::vec3(0.3f, 0.3f, 0.3f));
 	lightPos = glm::vec3(model2[3]);
 	lightShader->activate();
@@ -136,7 +153,7 @@ void drawScene(GLFWwindow* window) {
 	vao[1].bind();
 	glDrawArrays(GL_TRIANGLES, 0, myCubeVertexCount);
 	vao[1].unbind();
-	
+	///////////////////////
 	glfwSwapBuffers(window);
 }
 

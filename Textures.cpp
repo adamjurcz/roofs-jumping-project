@@ -1,11 +1,11 @@
 #include "Textures.h"
 
 void Textures::readTexture(const char* filename, GLenum format) {
-	stbi_set_flip_vertically_on_load(true);
+	stbi_set_flip_vertically_on_load(false);
 	int width, height, fileChannels;
 	unsigned char* load = stbi_load(filename, &width, &height, &fileChannels, 0);
 
-	glEnable(type);
+	//glEnable(type);
 
 	glActiveTexture(GL_TEXTURE0 + unit);
 	glGenTextures(1, &texturesID);
@@ -38,16 +38,16 @@ void Textures::readTexture(const char* filename, GLenum format) {
 	glBindTexture(type, 0);
 }
 
-Textures::Textures(const char* image, GLenum texType, GLuint unit, GLenum format) {
+Textures::Textures(const char* image, GLenum texType, GLuint unit, GLenum format, std::string lightType) {
 	this->type = texType;
 	this->unit = unit;
+	this->lightType = lightType;
 	readTexture(image, format);
 
 }
-void Textures::texUnit(ShaderProgram& shader, const char* uniform) {
+void Textures::texUnit(ShaderProgram& shader, const char* uniform, unsigned int unit) {
 	GLuint texUni = glGetUniformLocation(shader.getShaderID(), uniform);
 	shader.activate();
-	glActiveTexture(GL_TEXTURE0 + unit);
 	glUniform1i(texUni, unit);
 }
 
@@ -66,4 +66,8 @@ void Textures::unbind()
 void Textures::destroy()
 {
 	glDeleteTextures(1, &texturesID);
+}
+
+std::string Textures::getLightType() {
+	return this->lightType;
 }

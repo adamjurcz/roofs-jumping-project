@@ -17,7 +17,6 @@ void main()
 	FragPosition = vec3(M*vec4(aPos, 1.0));
 	Normal = mat3(transpose(inverse(M)))*aNormal;
 	texCoord = aTex;
-
 }
 
 
