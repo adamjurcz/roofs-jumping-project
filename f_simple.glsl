@@ -9,7 +9,6 @@ uniform vec3 lightPos;
 uniform vec3 objectColor;
 uniform vec3 lightColor;
 
-
 in vec2 texCoord;
 uniform sampler2D texture0;
 
