@@ -80,14 +80,13 @@ Mesh Model::processMesh(aiMesh* mesh, const aiScene* scene)
     }
     
     // process material
-    /*
+    
     if (mesh->mMaterialIndex >= 0)
     {
         aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];
 
         std::vector<Textures> diffuse;
         
-        std::cout << "liczba tekstur: " << material->GetTextureCount(aiTextureType_DIFFUSE) << std::endl;
 
         for (unsigned int i = 0; i < material->GetTextureCount(aiTextureType_DIFFUSE); i++) {
             aiString file;
@@ -95,15 +94,13 @@ Mesh Model::processMesh(aiMesh* mesh, const aiScene* scene)
 
             std::string fileDirectory = directory + '/' + file.C_Str();
 
-            std::cout << fileDirectory << " " << std::endl;
-
             Textures loadedTexture = Textures(fileDirectory.c_str(), GL_TEXTURE_2D, GL_TEXTURE0 + i, GL_RGB, "texture_diffuse");
             diffuse.push_back(loadedTexture);
         }
 
         textures.insert(textures.end(), diffuse.begin(), diffuse.end());
     }
-    */
+    
     
     return Mesh(vertices, indices, textures);
 }

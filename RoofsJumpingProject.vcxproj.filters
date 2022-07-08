@@ -55,12 +55,18 @@
     <Filter Include="Source Files\scene">
       <UniqueIdentifier>{a0979e2a-c7df-4bc9-9f9a-e61f48b67da1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\shapes">
+      <UniqueIdentifier>{324c9254-bdfe-4f8d-955d-44aaeafadf07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\shapes">
+      <UniqueIdentifier>{e95ea10a-2983-4414-b72f-dea568dde353}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ShaderProgram.cpp">
       <Filter>Source Files\shaders</Filter>
     </ClCompile>
-    <ClCompile Include="Engine.cpp">
+    <ClCompile Include="World.cpp">
       <Filter>Source Files\mainFiles</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
@@ -99,10 +105,13 @@
     <ClCompile Include="Model.cpp">
       <Filter>Source Files\models</Filter>
     </ClCompile>
-    <ClCompile Include="Scene.cpp">
+    <ClCompile Include="Renderer.cpp">
       <Filter>Source Files\scene</Filter>
     </ClCompile>
-    <ClCompile Include="Renderer.cpp">
+    <ClCompile Include="SimpleBuilding.cpp">
+      <Filter>Source Files\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
       <Filter>Source Files\scene</Filter>
     </ClCompile>
   </ItemGroup>
@@ -136,7 +145,7 @@
     <ClInclude Include="ShaderProgram.h">
       <Filter>Header Files\shaders</Filter>
     </ClInclude>
-    <ClInclude Include="Engine.h">
+    <ClInclude Include="World.h">
       <Filter>Header Files\mainFiles</Filter>
     </ClInclude>
     <ClInclude Include="EBO.h">
@@ -172,11 +181,17 @@
     <ClInclude Include="Model.h">
       <Filter>Header Files\models</Filter>
     </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Header Files\scene</Filter>
-    </ClInclude>
     <ClInclude Include="Renderer.h">
       <Filter>Header Files\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleBuilding.h">
+      <Filter>Header Files\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonConsts.h">
+      <Filter>Header Files\utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

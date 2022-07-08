@@ -1,4 +1,6 @@
-#pragma once
+#ifndef VBO_H
+#define VBO_H
+
 #include <glad/glad.h>
 #include "Vertex.h"
 class VBO
@@ -12,4 +14,6 @@ public:
 	void unbind();
 	void deactivate();
 };
+
+#endif
 

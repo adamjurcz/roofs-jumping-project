@@ -1,4 +1,6 @@
-#pragma once
+#ifndef VAO_H
+#define VAO_H
+
 #include<glad/glad.h>
 #include"VBO.h"
 
@@ -14,3 +16,4 @@ public:
 	void deactivate();
 };
 
+#endif

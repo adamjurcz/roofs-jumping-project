@@ -1,4 +1,7 @@
-#pragma once
+#ifndef EBO_H
+#define EBO_H
+
+
 #include <glad/glad.h>
 class EBO
 {
@@ -10,3 +13,5 @@ public:
 	void unbind();
 	void deactivate();
 };
+
+#endif
