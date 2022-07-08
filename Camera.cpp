@@ -4,71 +4,53 @@ Camera::Camera(glm::vec3 position, int windowWidth, int windowHeight) {
 	this->windowWidth = windowWidth;
 	this->windowHeight = windowHeight;
 
-	this->lastX = static_cast<float>(this->windowWidth / 2);
-	this->lastY = static_cast<float>(this->windowHeight / 2);
+	this->lastMouseX = static_cast<float>(this->windowWidth / 2);
+	this->lastMouseY = static_cast<float>(this->windowHeight / 2);
+
+	this->fov = 45.0f;
+	this->aspect = static_cast<float>(windowWidth) / static_cast<float>(windowHeight);
+	this->zFar = 100.0f;
+	this->zNear = 0.1f;
 
 	updateVectors();
+	updateView();
+	updateProj();
 }
 
-void Camera::input(GLFWwindow* window, double deltaTime) {
-	keyboardInput(window, deltaTime);
-	mouseInput(window, deltaTime);
-}
 
-void Camera::keyboardInput(GLFWwindow* window, double deltaTime) {
-	pSpeed = static_cast<float>(deltaTime * 3.4);
 
-	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-	{
-		position += pSpeed * front;
-	}
-	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-	{
-		position += pSpeed * -glm::normalize(glm::cross(front, up));
-	}
-	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-	{
-		position += pSpeed * -front;
-	}
-	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-	{
-		position += pSpeed * glm::normalize(glm::cross(front, up));
-	}
-}
-
-void Camera::mouseInput(GLFWwindow* window, double deltaTime) {
-	double mouseX, mouseY;
-	glfwGetCursorPos(window, &mouseX, &mouseY);
+void Camera::mouseMove(double mouseX, double mouseY, double deltaTime) {
 	mouseY = -mouseY;
-	if (this->firstClick == false) {
-		this->lastX = mouseX;
-		this->lastY = mouseY;
-		this->firstClick = true;
+	if (this->_firstClick == true) {
+		this->lastMouseX = mouseX;
+		this->lastMouseY = mouseY;
+		this->_firstClick = false;
 	}
-	float xOffset = (static_cast<float>(mouseX) - this->lastX) * this->sensivity * static_cast<float>(deltaTime);
-	float yOffset = (static_cast<float>(mouseY) - this->lastY) * this->sensivity * static_cast<float>(deltaTime);
+	float xOffset = (static_cast<float>(mouseX) - this->lastMouseX) * this->_sensivity * static_cast<float>(deltaTime);
+	float yOffset = (static_cast<float>(mouseY) - this->lastMouseY) * this->_sensivity * static_cast<float>(deltaTime);
 
-	this->lastX = mouseX;
-	this->lastY = mouseY;
+	this->lastMouseX = mouseX;
+	this->lastMouseY = mouseY;
 
-	this->yaw += xOffset;
-	this->pitch += yOffset;
+	this->_yaw += xOffset;
+	this->_pitch += yOffset;
 
-	if (this->pitch > 89.0f) {
-		this->pitch = 89.0f;
+	if (this->_pitch > 89.0f) {
+		this->_pitch = 89.0f;
 	}
-	if (this->pitch < -89.0f) {
-		this->pitch = -89.0f;
+	if (this->_pitch < -89.0f) {
+		this->_pitch = -89.0f;
 	}
-
+	
 	updateVectors();
+	updateView();
 }
 
 void Camera::updateVectors() {
 	glm::vec3 newFront = glm::normalize(glm::vec3(
-		glm::cos(glm::radians(this->pitch)) * glm::cos(glm::radians(this->yaw)),
-		glm::sin(glm::radians(this->pitch)),
-		glm::cos(glm::radians(this->pitch)) * glm::sin(glm::radians(this->yaw))
+		glm::cos(glm::radians(this->_pitch)) * glm::cos(glm::radians(this->_yaw)),
+		glm::sin(glm::radians(this->_pitch)),
+		glm::cos(glm::radians(this->_pitch)) * glm::sin(glm::radians(this->_yaw))
 	));
 
 	this->right = glm::normalize(glm::cross(newFront, glm::vec3(0.0f, 1.0f, 0.0f)));
@@ -76,12 +58,125 @@ void Camera::updateVectors() {
 	this->front = newFront;
 }
 
-
-glm::mat4 Camera::getViewMatrix() {
-	return glm::lookAt(position, position + front, up);
+void Camera::updateView() {
+	this->view = glm::lookAt(position, position + front, up);
 }
 
-glm::vec3 Camera::getPosition() {
-	return this->position;
+void Camera::updateProj() {
+	this->proj = glm::perspective(fov, aspect, zNear, zFar);
 }
 
+void Camera::setPosition(glm::vec3& position) {
+	this->position = position;
+
+	updateView();
+}
+
+
+void Camera::setProjMatrix(float fov, float aspect, float zNear, float zFar) {
+	this->fov = fov;
+	this->aspect = aspect;
+	this->zNear = zNear;
+	this->zFar = zFar;
+
+	updateProj();
+}
+
+void Camera::setFov(float fov) {
+	this->fov = fov;
+
+	updateProj();
+}
+
+void Camera::setAspect(float aspect) {
+	this->aspect = aspect;
+
+	updateProj();
+}
+
+void Camera::setNear(float zNear) {
+	this->zNear = zNear;
+
+	updateProj();
+}
+
+
+void Camera::setFar(float zFar) {
+	this->zFar = zFar;
+
+	updateProj();
+}
+
+void Camera::setSensivity(float sensivity) {
+	this->_sensivity = sensivity;
+}
+
+void Camera::setSpeed(float speed) {
+	this->_pSpeed = speed;
+}
+
+void Camera::setAcceleration(float acceleration) {
+	this->_acceleration = acceleration;
+}
+
+float Camera::getSensivity() {
+	return _sensivity;
+}
+
+float Camera::getSpeed() {
+	return _pSpeed;
+}
+
+float Camera::getAcceleration() {
+	return _acceleration;
+}
+
+
+
+glm::mat4& Camera::getProjMatrix() {
+	return proj;
+}
+
+glm::mat4& Camera::getViewMatrix() {
+	return view;
+}
+
+glm::vec3& Camera::getPosition() {
+	return position;
+}
+
+glm::vec3& Camera::getFront() {
+	return front;
+}
+
+glm::vec3& Camera::getUp() {
+	return up;
+}
+
+glm::vec3& Camera::getRight() {
+	return right;
+}
+
+/*
+void Camera::keyboardInput(GLFWwindow* window, double deltaTime) {
+	_pSpeed = static_cast<float>(deltaTime * 3.4);
+
+	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+	{
+		position += _pSpeed * front;
+	}
+	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+	{
+		position += _pSpeed * -glm::normalize(glm::cross(front, up));
+	}
+	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+	{
+		position += _pSpeed * -front;
+	}
+	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+	{
+		position += _pSpeed * glm::normalize(glm::cross(front, up));
+	}
+	updateView();
+}
+*/

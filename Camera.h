@@ -11,33 +11,71 @@
 class Camera
 {
 private:
+	glm::mat4 proj;
+	glm::mat4 view;
+
 	int windowWidth, windowHeight;
-	float lastX, lastY;
-	float sensivity = 10.0f;
-	float pSpeed = 100.0f;
-	float acceleration = 0.1f;
 
-	float yaw = 0.0f;
-	float pitch = 0.0f;
+	float lastMouseX;
+	float lastMouseY;
+	float zNear;
+	float zFar;
+	float aspect;
+	float fov;
 
-	bool firstClick = false;
 
-	void keyboardInput(GLFWwindow* window, double deltaTime);
-	void mouseInput(GLFWwindow* window, double deltaTime);
+	float _sensivity = 10.0f;
+	float _pSpeed = 0.0f;
+	float _acceleration = 0.1f;
+
+	float _yaw = 0.0f;
+	float _pitch = 0.0f;
+
+	bool _firstClick = true;
+
 	void updateVectors();
+	void updateProj();
+	void updateView();
+
 
 public:
-	glm::vec3 position = glm::vec3(0.0f, 0.0f, -3.0f);
+	glm::vec3 position;
 	glm::vec3 front;
 	glm::vec3 up;
 	glm::vec3 right;
-	
+
 	Camera(glm::vec3 position, int windowWidth, int windowHeight);
 
-	void input(GLFWwindow* window, double deltaTime);
+	void mouseMove(double mouseX, double mouseY, double deltaTime);
 
-	glm::mat4 getViewMatrix();
-	glm::vec3 getPosition();
+	void setPosition(glm::vec3& pos);
+
+	void setProjMatrix(float fov, float aspect, float zNear, float zFar);
+	void setFov(float fov);
+	void setAspect(float aspect);
+	void setNear(float zNear);
+	void setFar(float zFar);
+
+
+	void setSensivity(float sensivity);
+	void setSpeed(float speed);
+	void setAcceleration(float acceleration);
+
+	float getSensivity();
+	float getSpeed();
+	float getAcceleration();
+
+
+
+	glm::mat4& getProjMatrix();
+	glm::mat4& getViewMatrix();
+	glm::vec3& getPosition();
+
+	glm::vec3& getFront();
+	glm::vec3& getUp();
+	glm::vec3& getRight();
+
+
 };
 
 #endif

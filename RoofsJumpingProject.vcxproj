@@ -147,14 +147,15 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="EBO.cpp" />
-    <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="World.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="Renderer.cpp" />
-    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
+    <ClCompile Include="SimpleBuilding.cpp" />
     <ClCompile Include="Skybox.cpp" />
     <ClCompile Include="stb.cpp" />
     <ClCompile Include="Textures.cpp" />
@@ -174,14 +175,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="CommonConsts.h" />
     <ClInclude Include="EBO.h" />
-    <ClInclude Include="Engine.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="World.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="myCube.h" />
     <ClInclude Include="Renderer.h" />
-    <ClInclude Include="Scene.h" />
     <ClInclude Include="ShaderProgram.h" />
+    <ClInclude Include="SimpleBuilding.h" />
     <ClInclude Include="Skybox.h" />
     <ClInclude Include="Textures.h" />
     <ClInclude Include="VAO.h" />

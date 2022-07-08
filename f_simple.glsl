@@ -12,7 +12,7 @@ uniform vec3 lightColor;
 in vec2 texCoord;
 uniform sampler2D texture0;
 
-const float ambientStrength = 0.2f;
+const float ambientStrength = 0.1f;
 const float specularStrength = 0.5f;
 
 void main()

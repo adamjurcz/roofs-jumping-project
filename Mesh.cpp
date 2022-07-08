@@ -15,12 +15,11 @@ void Mesh::draw(ShaderProgram& shader) {
 	unsigned int numDiffuse = 1;
 	unsigned int numSpecular = 1;
 	
-	std::cout << "rozmiar tekstur wektor: " << textures.size() << std::endl;
+	//std::cout << "rozmiar tekstur wektor: " << textures.size() << std::endl;
 	
 	for (int i = 0; i < textures.size(); i++) {
 		std::string num;
 		std::string name = textures[i].getLightType();
-		std::cout << " " << name << " " << std::endl;
 
 		if (name == "texture_diffuse") {
 			num = std::to_string(numDiffuse++);
