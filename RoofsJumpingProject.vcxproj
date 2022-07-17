@@ -147,7 +147,9 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="EBO.cpp" />
+    <ClCompile Include="Maths.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Terrain.cpp" />
     <ClCompile Include="World.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="Main.cpp" />
@@ -167,17 +169,21 @@
     <None Include="f_light_cube.glsl" />
     <None Include="f_simple.glsl" />
     <None Include="f_skybox.glsl" />
+    <None Include="f_terrain.glsl" />
     <None Include="f_try.glsl" />
     <None Include="v_light_cube.glsl" />
     <None Include="v_simple.glsl" />
     <None Include="v_skybox.glsl" />
+    <None Include="v_terrain.glsl" />
     <None Include="v_try.glsl" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CommonConsts.h" />
     <ClInclude Include="EBO.h" />
+    <ClInclude Include="Maths.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Terrain.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Model.h" />

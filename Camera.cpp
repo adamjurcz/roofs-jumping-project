@@ -9,7 +9,7 @@ Camera::Camera(glm::vec3 position, int windowWidth, int windowHeight) {
 
 	this->fov = 45.0f;
 	this->aspect = static_cast<float>(windowWidth) / static_cast<float>(windowHeight);
-	this->zFar = 100.0f;
+	this->zFar = 200.0f;
 	this->zNear = 0.1f;
 
 	updateVectors();
@@ -119,6 +119,22 @@ void Camera::setAcceleration(float acceleration) {
 	this->_acceleration = acceleration;
 }
 
+float Camera::getFov() {
+	return fov;
+}
+
+float Camera::getAspect() {
+	return aspect;
+}
+
+float Camera::getNear() {
+	return zNear;
+}
+float Camera::getFar() {
+	return zFar;
+}
+
+
 float Camera::getSensivity() {
 	return _sensivity;
 }
@@ -130,6 +146,8 @@ float Camera::getSpeed() {
 float Camera::getAcceleration() {
 	return _acceleration;
 }
+
+
 
 
 

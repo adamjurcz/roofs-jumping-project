@@ -61,6 +61,12 @@ public:
 	void setSpeed(float speed);
 	void setAcceleration(float acceleration);
 
+
+	float getFov();
+	float getAspect();
+	float getNear();
+	float getFar();
+
 	float getSensivity();
 	float getSpeed();
 	float getAcceleration();

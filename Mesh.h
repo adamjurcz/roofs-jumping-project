@@ -30,6 +30,9 @@ public:
 
 	void draw(ShaderProgram& shader);
 	void update();
+
+	VAO* getVao();
+	std::vector<Textures>& getTexture();
 };
 
 #endif

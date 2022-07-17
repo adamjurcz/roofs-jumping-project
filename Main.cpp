@@ -18,11 +18,14 @@
 #include "Model.h"
 #include "SimpleBuilding.h"
 #include "Player.h"
+#include "Terrain.h"
 
 ShaderProgram* lightShader;
 ShaderProgram* blockShader;
 ShaderProgram* tryShader;
+ShaderProgram* terrainShader;
 
+Terrain* terrain;
 Skybox* skybox;
 Textures* texture;
 Model* model;
@@ -52,6 +55,7 @@ void initOpenGLProgram(GLFWwindow* window) {
 	lightShader = new ShaderProgram("v_light_cube.glsl", NULL, "f_light_cube.glsl");
 	blockShader = new ShaderProgram("v_simple.glsl", NULL, "f_simple.glsl");
 	tryShader = new ShaderProgram("v_try.glsl", NULL, "f_try.glsl");
+	terrainShader = new ShaderProgram("v_terrain.glsl", NULL, "f_terrain.glsl");
 	skybox = new Skybox();
 	
 	texture = new Textures("resources/facade.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, "diff");
@@ -60,6 +64,7 @@ void initOpenGLProgram(GLFWwindow* window) {
 	model = new Model("resources/cat/12221_Cat_v1_l3.obj");
 	
 	player = new Player();
+	terrain = new Terrain(terrainShader);
 
 }
 
@@ -76,7 +81,7 @@ void drawScene(GLFWwindow* window) {
 	glClearColor(0.5f, 1.0f, 0.9f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	double currentFrame = static_cast<float>(glfwGetTime());
+	float currentFrame = static_cast<float>(glfwGetTime());
 	deltaTime = currentFrame - lastFrame;
 	lastFrame = currentFrame;
 
@@ -112,6 +117,15 @@ void drawScene(GLFWwindow* window) {
 	model2 = glm::scale(model2, glm::vec3(0.3f, 0.3f, 0.3f));
 	lightPos = glm::vec3(model2[3]);
 	light->simpleBuildingRender(proj, view, model2);
+	//
+	terrainShader->activate();
+	terrainShader->setMat4("P", proj);
+	terrainShader->setMat4("V", view);
+
+	glm::mat4 terrainModel = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, -20.0f, 0.0f));
+	terrainShader->setMat4("M", terrainModel);
+	
+	terrain->terrainRender(terrainShader, player->position, player->camera.getFar());
 	//
 	glfwSwapBuffers(window);
 }
