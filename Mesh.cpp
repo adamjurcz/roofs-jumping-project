@@ -8,6 +8,24 @@ Mesh::Mesh(std::vector<Vertex> vertices, std::vector<GLuint>indices, std::vector
 	update();
 }
 
+void Mesh::update() {
+
+	this->vao = new VAO();
+	this->vao->bind();
+
+	VBO vbo = VBO(&vertices.at(0), vertices.size() * sizeof(Vertex));
+	EBO ebo = EBO(&indices.at(0), indices.size() * sizeof(GLuint));
+
+	this->vao->linkAttr(vbo, 0, 3, GL_FLOAT, sizeof(Vertex), (void*)0);
+	this->vao->linkAttr(vbo, 1, 3, GL_FLOAT, sizeof(Vertex), (void*)offsetof(Vertex, normal));
+	this->vao->linkAttr(vbo, 2, 2, GL_FLOAT, sizeof(Vertex), (void*)offsetof(Vertex, texCoord));
+
+	this->vao->unbind();
+	vbo.unbind();
+	ebo.unbind();
+
+}
+
 void Mesh::draw(ShaderProgram& shader) {
 	std::string name;
 	vao->bind();
@@ -39,20 +57,11 @@ void Mesh::draw(ShaderProgram& shader) {
 	glActiveTexture(GL_TEXTURE0);
 }
 
-void Mesh::update() {
-	
-	this->vao = new VAO();
-	this->vao->bind();
-	
-	VBO vbo = VBO(&vertices.at(0), vertices.size() * sizeof(Vertex));
-	EBO ebo = EBO(&indices.at(0), indices.size() * sizeof(GLuint));
-
-	this->vao->linkAttr(vbo, 0, 3, GL_FLOAT, sizeof(Vertex), (void*)0);
-	this->vao->linkAttr(vbo, 1, 3, GL_FLOAT, sizeof(Vertex), (void*)offsetof(Vertex, normal));
-	this->vao->linkAttr(vbo, 2, 2, GL_FLOAT, sizeof(Vertex), (void*)offsetof(Vertex, texCoord));
-	
-	this->vao->unbind();
-	vbo.unbind();
-	ebo.unbind();
-
+VAO* Mesh::getVao() {
+	return vao;
 }
+
+std::vector<Textures>& Mesh::getTexture() {
+	return textures;
+}
+

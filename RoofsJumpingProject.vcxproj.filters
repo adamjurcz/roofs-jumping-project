@@ -114,6 +114,12 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files\scene</Filter>
     </ClCompile>
+    <ClCompile Include="Terrain.cpp">
+      <Filter>Source Files\world</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths.cpp">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="v_simple.glsl">
@@ -138,6 +144,12 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="f_try.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="v_terrain.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="f_terrain.glsl">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
@@ -191,6 +203,12 @@
       <Filter>Header Files\scene</Filter>
     </ClInclude>
     <ClInclude Include="CommonConsts.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Terrain.h">
+      <Filter>Header Files\world</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths.h">
       <Filter>Header Files\utils</Filter>
     </ClInclude>
   </ItemGroup>

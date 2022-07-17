@@ -26,6 +26,7 @@ public:
 	void destroy();
 
 	std::string getLightType();
+	GLuint getUnit();
 };
 
 #endif
