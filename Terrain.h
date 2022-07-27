@@ -26,13 +26,10 @@ private:
 	float startWidth;
 	float startHeight;
 
-	const char* terrainTexture1 = "terrain1.png";
-	const char* terrainTexture2 = "terrain2.png";
-	const char* terrainTexture3 = "terrain3.png";
 public:
-	Terrain(ShaderProgram* shader);
-	void terrainGenerator(ShaderProgram* shader);
-	void terrainRender(ShaderProgram* shader, glm::vec3& playerPos, float zFar);
+	Terrain(ShaderProgram& shader);
+	void terrainGenerator(ShaderProgram& shader);
+	void terrainRender(ShaderProgram& shader, glm::vec3& playerPos, float zFar);
 	
 	int positionToStrip(float x);
 

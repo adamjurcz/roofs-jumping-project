@@ -145,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Application.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="EBO.cpp" />
     <ClCompile Include="Maths.cpp" />
@@ -163,7 +164,6 @@
     <ClCompile Include="Textures.cpp" />
     <ClCompile Include="VAO.cpp" />
     <ClCompile Include="VBO.cpp" />
-    <ClCompile Include="WorldTransform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="f_light_cube.glsl" />
@@ -178,8 +178,8 @@
     <None Include="v_try.glsl" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Application.h" />
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="CommonConsts.h" />
     <ClInclude Include="EBO.h" />
     <ClInclude Include="Maths.h" />
     <ClInclude Include="Player.h" />
@@ -196,7 +196,6 @@
     <ClInclude Include="VAO.h" />
     <ClInclude Include="VBO.h" />
     <ClInclude Include="Vertex.h" />
-    <ClInclude Include="WorldTransform.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="brick.png" />

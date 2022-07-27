@@ -90,9 +90,6 @@
     <ClCompile Include="Textures.cpp">
       <Filter>Source Files\utils</Filter>
     </ClCompile>
-    <ClCompile Include="WorldTransform.cpp">
-      <Filter>Source Files\mainFiles</Filter>
-    </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>Source Files\mainFiles</Filter>
     </ClCompile>
@@ -119,6 +116,9 @@
     </ClCompile>
     <ClCompile Include="Maths.cpp">
       <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>Source Files\mainFiles</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -172,9 +172,6 @@
     <ClInclude Include="Textures.h">
       <Filter>Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="WorldTransform.h">
-      <Filter>Header Files\mainFiles</Filter>
-    </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Header Files\mainFiles</Filter>
     </ClInclude>
@@ -202,14 +199,14 @@
     <ClInclude Include="Player.h">
       <Filter>Header Files\scene</Filter>
     </ClInclude>
-    <ClInclude Include="CommonConsts.h">
-      <Filter>Header Files\utils</Filter>
-    </ClInclude>
     <ClInclude Include="Terrain.h">
       <Filter>Header Files\world</Filter>
     </ClInclude>
     <ClInclude Include="Maths.h">
       <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>Header Files\mainFiles</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

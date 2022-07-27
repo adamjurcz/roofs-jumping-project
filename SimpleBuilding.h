@@ -13,16 +13,12 @@ class SimpleBuilding {
 private:
 	VAO* vao;
 	Textures* textures;
-	ShaderProgram* defaultShader;
 
 public:
 	SimpleBuilding(Textures* textures = nullptr);
 	~SimpleBuilding();
 
-	void simpleBuildingRender(const glm::mat4& proj, const glm::mat4& view, const glm::mat4& model, 
-		const glm::vec3& cameraPos, const glm::vec3& lightPos, ShaderProgram* shader);
-
-	void simpleBuildingRender(const glm::mat4& proj, const glm::mat4& view, const glm::mat4& model);
+	void draw(ShaderProgram& shader);
 
 
 	VAO* getVao();

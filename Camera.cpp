@@ -119,6 +119,17 @@ void Camera::setAcceleration(float acceleration) {
 	this->_acceleration = acceleration;
 }
 
+void Camera::setGravity(float gravity) {
+	this->_gravity = gravity;
+}
+
+void Camera::setJumpPower(float jumpPower) {
+	this->_jumpPower = jumpPower;
+}
+
+
+
+
 float Camera::getFov() {
 	return fov;
 }
@@ -147,6 +158,13 @@ float Camera::getAcceleration() {
 	return _acceleration;
 }
 
+float Camera::getGravity() {
+	return _gravity;
+}
+
+float Camera::getJumpPower() {
+	return _jumpPower;
+}
 
 
 
