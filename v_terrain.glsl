@@ -4,7 +4,7 @@ layout (location = 1) in vec3 aNormal;
 layout (location = 2) in vec2 aTex;
 
 out float Height;
-//out vec3 Position;
+
 out vec2 texCoord;
 
 uniform mat4 M;

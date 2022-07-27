@@ -1,38 +1,53 @@
 #include "Renderer.h"
 
-Renderer::Renderer() {
-	this->lightShader = new ShaderProgram("v_light_cube.glsl", NULL, "f_light_cube.glsl");
-	this->blockShader = new ShaderProgram("v_simple.glsl", NULL, "f_simple.glsl");
-	this->tryShader = new ShaderProgram("v_try.glsl", NULL, "f_try.glsl");
-
-	this->skybox = new Skybox();
+Renderer::Renderer() : lightShader("v_light_cube.glsl", NULL, "f_light_cube.glsl"), blockShader("v_simple.glsl", NULL, "f_simple.glsl"),
+			tryShader("v_try.glsl", NULL, "f_try.glsl"), terrainShader("v_terrain.glsl", NULL, "f_terrain.glsl") {
 }
 
-void Renderer::initModels() {
-	Model* catModel = new Model("resources/cat/12221_Cat_v1_l3.obj");
-	models.push_back(std::make_pair(catModel, "catModel"));
-}
+void Renderer::renderTerrain(glm::mat4 proj, glm::mat4 view, glm::mat4 model, Terrain* terrain, Player* player) {
+	terrainShader.activate();
+	terrainShader.setMat4("P", proj);
+	terrainShader.setMat4("V", view);
+	terrainShader.setMat4("M", model);
 
-void Renderer::initSimpleShapes() {
-	Textures* facadeTexture = new Textures("resources/facade.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, "diff");
-	SimpleBuilding* skyscraper = new SimpleBuilding(facadeTexture);
-
-	SimpleBuilding* lightShape = new SimpleBuilding();
-
-	simpleBuildings.push_back(std::make_pair(skyscraper, "skyscraper"));
-	simpleBuildings.push_back(std::make_pair(lightShape, "lightShape"));
-}
-
-void Renderer::renderSkyscrapers() {
-
+	terrain->terrainRender(terrainShader, player->position, player->camera.getFar());
 }
 
 
-void Renderer::renderTerrain() {
-	
+void Renderer::renderObjects(glm::mat4 proj, glm::mat4 view, glm::mat4 model, Model* models) {
+	tryShader.activate();
+	tryShader.setMat4("P", proj);
+	tryShader.setMat4("V", view);
+	tryShader.setMat4("M", model);
+
+	models->draw(tryShader);
 }
 
-void Renderer::renderObjects() {
-	
+void Renderer::renderSkyscrapers(glm::mat4 proj, glm::mat4 view, glm::mat4 model, SimpleBuilding* simpleBuilding, Player* player, glm::vec3 lightPos) {
+	blockShader.activate();
+
+	blockShader.setVec3("objectColor", glm::vec3(0.4f, 0.2f, 0.7f));
+	blockShader.setVec3("lightColor", glm::vec3(1.0f, 1.0f, 1.0f));
+
+	blockShader.setVec3("lightPos", lightPos);
+	blockShader.setVec3("viewPos", player->position);
+
+	blockShader.setMat4("P", proj);
+	blockShader.setMat4("V", view);
+	blockShader.setMat4("M", model);
+
+	simpleBuilding->draw(blockShader);
 }
+
+void Renderer::renderLightCube(glm::mat4 proj, glm::mat4 view, glm::mat4 model, SimpleBuilding* lightCube) {
+	lightShader.activate();
+	lightShader.setMat4("P", proj);
+	lightShader.setMat4("V", view);
+	lightShader.setMat4("M", model);
+
+	lightCube->draw(lightShader);
+}
+
+
+
 

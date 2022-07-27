@@ -8,9 +8,7 @@ in vec2 texCoord;
 uniform sampler2D texture0; //rock
 uniform sampler2D texture1; //grass
 
-void main()
-{
-    
+void main(){
     const float border0 = 8.0f;
     const float border1 = 12.0f;
 

@@ -26,7 +26,9 @@ private:
 
 	float _sensivity = 10.0f;
 	float _pSpeed = 0.0f;
-	float _acceleration = 0.1f;
+	float _acceleration = 0.0f;
+	float _gravity = 0.0f;
+	float _jumpPower = 0.0f;
 
 	float _yaw = 0.0f;
 	float _pitch = 0.0f;
@@ -60,6 +62,8 @@ public:
 	void setSensivity(float sensivity);
 	void setSpeed(float speed);
 	void setAcceleration(float acceleration);
+	void setGravity(float gravity);
+	void setJumpPower(float jumpPower);
 
 
 	float getFov();
@@ -70,6 +74,8 @@ public:
 	float getSensivity();
 	float getSpeed();
 	float getAcceleration();
+	float getGravity();
+	float getJumpPower();
 
 
 

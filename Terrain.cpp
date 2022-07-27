@@ -1,10 +1,10 @@
 #include "Terrain.h"
 
-Terrain::Terrain(ShaderProgram* shader) {
+Terrain::Terrain(ShaderProgram& shader) {
     terrainGenerator(shader);
 }
 
-void Terrain::terrainGenerator(ShaderProgram* shader) {
+void Terrain::terrainGenerator(ShaderProgram& shader) {
 	std::vector<Vertex>vertices;
 	std::vector<GLuint>indices;
     std::vector<Textures>textures;
@@ -63,9 +63,9 @@ void Terrain::terrainGenerator(ShaderProgram* shader) {
     Textures marbleTexture = Textures("resources/terrain/white_marble.jpg", GL_TEXTURE_2D, 0, GL_RGB, "0");
     Textures grassTexture = Textures("resources/terrain/grass.jpg", GL_TEXTURE_2D, 1, GL_RGB, "1");
     marbleTexture.bind();
-    marbleTexture.texUnit(*shader, "texture0", 0);
+    marbleTexture.texUnit(shader, "texture0", 0);
     grassTexture.bind();
-    grassTexture.texUnit(*shader, "texture1", 1);
+    grassTexture.texUnit(shader, "texture1", 1);
 
     textures.push_back(marbleTexture);
     textures.push_back(grassTexture);
@@ -75,7 +75,7 @@ void Terrain::terrainGenerator(ShaderProgram* shader) {
     vao = mesh->getVao();
 }
 
-void Terrain::terrainRender(ShaderProgram* shader, glm::vec3& playerPos, float zFar) {
+void Terrain::terrainRender(ShaderProgram& shader, glm::vec3& playerPos, float zFar) {
     glm::vec2 A = glm::vec2(-width / 2.0f, -height / 2.0f);
     glm::vec2 B = glm::vec2(width / 2.0f, -height / 2.0f);
     glm::vec2 C = glm::vec2(width / 2.0f, height / 2.0f);
