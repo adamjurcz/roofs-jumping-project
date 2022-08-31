@@ -61,6 +61,12 @@
     <Filter Include="Source Files\shapes">
       <UniqueIdentifier>{e95ea10a-2983-4414-b72f-dea568dde353}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\physics">
+      <UniqueIdentifier>{01ebe019-d7a9-46a4-87e7-74e024db1f72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\physics">
+      <UniqueIdentifier>{a2c56564-fd8f-459f-8fcc-8197437f09bb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ShaderProgram.cpp">
@@ -85,9 +91,6 @@
       <Filter>Source Files\glad</Filter>
     </ClCompile>
     <ClCompile Include="stb.cpp">
-      <Filter>Source Files\utils</Filter>
-    </ClCompile>
-    <ClCompile Include="Textures.cpp">
       <Filter>Source Files\utils</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
@@ -119,6 +122,21 @@
     </ClCompile>
     <ClCompile Include="Application.cpp">
       <Filter>Source Files\mainFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics.cpp">
+      <Filter>Source Files\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicObject.cpp">
+      <Filter>Source Files\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsCube.cpp">
+      <Filter>Source Files\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Textures.cpp">
+      <Filter>Source Files\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectsManager.cpp">
+      <Filter>Source Files\scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -169,9 +187,6 @@
     <ClInclude Include="VBO.h">
       <Filter>Header Files\mainFiles</Filter>
     </ClInclude>
-    <ClInclude Include="Textures.h">
-      <Filter>Header Files\utils</Filter>
-    </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Header Files\mainFiles</Filter>
     </ClInclude>
@@ -207,6 +222,24 @@
     </ClInclude>
     <ClInclude Include="Application.h">
       <Filter>Header Files\mainFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLMotionState.h">
+      <Filter>Header Files\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics.h">
+      <Filter>Header Files\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicObject.h">
+      <Filter>Header Files\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicCube.h">
+      <Filter>Header Files\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Textures.h">
+      <Filter>Header Files\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectsManager.h">
+      <Filter>Header Files\scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

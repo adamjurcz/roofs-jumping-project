@@ -11,18 +11,14 @@
 
 class SimpleBuilding {
 private:
-	VAO* vao;
-	Textures* textures;
+	VAO vao;
 
 public:
-	SimpleBuilding(Textures* textures = nullptr);
+	SimpleBuilding();
 	~SimpleBuilding();
 
 	void draw(ShaderProgram& shader);
-
-
 	VAO* getVao();
-	Textures* getTextures();
 };
 
 #endif

@@ -8,19 +8,20 @@ Mesh::Mesh(std::vector<Vertex> vertices, std::vector<GLuint>indices, std::vector
 	update();
 }
 
-void Mesh::update() {
 
-	this->vao = new VAO();
-	this->vao->bind();
+
+
+void Mesh::update(){
+	this->vao.bind();
 
 	VBO vbo = VBO(&vertices.at(0), vertices.size() * sizeof(Vertex));
 	EBO ebo = EBO(&indices.at(0), indices.size() * sizeof(GLuint));
 
-	this->vao->linkAttr(vbo, 0, 3, GL_FLOAT, sizeof(Vertex), (void*)0);
-	this->vao->linkAttr(vbo, 1, 3, GL_FLOAT, sizeof(Vertex), (void*)offsetof(Vertex, normal));
-	this->vao->linkAttr(vbo, 2, 2, GL_FLOAT, sizeof(Vertex), (void*)offsetof(Vertex, texCoord));
+	this->vao.linkAttr(vbo, 0, 3, GL_FLOAT, sizeof(Vertex), (void*)0);
+	this->vao.linkAttr(vbo, 1, 3, GL_FLOAT, sizeof(Vertex), (void*)offsetof(Vertex, normal));
+	this->vao.linkAttr(vbo, 2, 2, GL_FLOAT, sizeof(Vertex), (void*)offsetof(Vertex, texCoord));
 
-	this->vao->unbind();
+	this->vao.unbind();
 	vbo.unbind();
 	ebo.unbind();
 
@@ -28,7 +29,7 @@ void Mesh::update() {
 
 void Mesh::draw(ShaderProgram& shader) {
 	std::string name;
-	vao->bind();
+	vao.bind();
 
 	unsigned int numDiffuse = 1;
 	unsigned int numSpecular = 1;
@@ -53,12 +54,12 @@ void Mesh::draw(ShaderProgram& shader) {
 	
 	glDrawElements(GL_TRIANGLES, static_cast<unsigned int>(indices.size()), GL_UNSIGNED_INT, 0);
 
-	vao->unbind();
+	vao.unbind();
 	glActiveTexture(GL_TEXTURE0);
 }
 
 VAO* Mesh::getVao() {
-	return vao;
+	return &vao;
 }
 
 std::vector<Textures>& Mesh::getTexture() {

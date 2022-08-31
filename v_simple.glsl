@@ -18,24 +18,3 @@ void main()
 	Normal = mat3(transpose(inverse(M)))*aNormal;
 	texCoord = aTex;
 }
-
-
-
-
-
-//Zmienne jednorodne
-//uniform mat4 P;
-//uniform mat4 V;
-//uniform mat4 M;
-
-//Atrybuty
-//in vec4 vertex; //wspolrzedne wierzcholka w przestrzeni modelu
-//in vec4 atrCol;
-//out vec4 i_color;
-
-//void main(void){
-//    gl_Position=P*V*M*vertex;
-//    float d = distance(V*M*vertex, vec4( 0, 0, 0, 1 ));
-//    d = 1-(d-3.3)/1.7;
-//    i_color = vec4(atrCol.rgb*d,atrCol.a);
-//}

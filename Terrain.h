@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <memory>
 #include <stb/stb_image.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -15,8 +16,8 @@
 
 class Terrain {
 private:
-	Mesh* mesh;
-	VAO* vao;
+	std::unique_ptr<Mesh> mesh;
+	std::unique_ptr<VAO> vao;
 
 	int width, height;
 
@@ -28,6 +29,7 @@ private:
 
 public:
 	Terrain(ShaderProgram& shader);
+	~Terrain();
 	void terrainGenerator(ShaderProgram& shader);
 	void terrainRender(ShaderProgram& shader, glm::vec3& playerPos, float zFar);
 	

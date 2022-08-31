@@ -1,6 +1,8 @@
 #ifndef VBO_H
 #define VBO_H
 
+#include <iostream>
+#include <vector>
 #include <glad/glad.h>
 #include "Vertex.h"
 class VBO
@@ -10,6 +12,8 @@ private:
 public:
 	VBO(GLfloat* vertices, GLsizeiptr size);
 	VBO(Vertex* vertices, GLsizeiptr size);
+	VBO(std::vector<float> vertices, GLsizeiptr size);
+
 	void bind();
 	void unbind();
 	void deactivate();

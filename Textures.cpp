@@ -5,9 +5,8 @@ void Textures::readTexture(const char* filename, GLenum format) {
 	int width, height, fileChannels;
 	unsigned char* load = stbi_load(filename, &width, &height, &fileChannels, 0);
 
-	glEnable(type);
-
-	glActiveTexture(GL_TEXTURE0 + unit);
+	//glEnable(type);
+	//glActiveTexture(GL_TEXTURE0 + unit);
 	glGenTextures(1, &texturesID);
 	glBindTexture(type, texturesID);
 
@@ -30,10 +29,8 @@ void Textures::readTexture(const char* filename, GLenum format) {
 
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-
 
 	stbi_image_free(load);
 	glBindTexture(type, 0);
@@ -48,6 +45,10 @@ Textures::Textures(const char* image, GLenum texType, GLuint unit, GLenum format
 }
 void Textures::texUnit(ShaderProgram& shader, const char* uniform, unsigned int unit) {
 	shader.activate();
+	glActiveTexture(GL_TEXTURE0 + unit);
+	glBindTexture(GL_TEXTURE_2D, texturesID);
+
+
 	GLuint texUni = glGetUniformLocation(shader.getShaderID(), uniform);
 	glUniform1i(texUni, unit);
 }

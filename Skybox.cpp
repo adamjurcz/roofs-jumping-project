@@ -70,6 +70,12 @@ Skybox::Skybox() {
 	VBOskybox->unbind();
 }
 
+Skybox::~Skybox() {
+	delete skyboxShader;
+	delete VAOskybox;
+	delete VBOskybox;
+}
+
 void Skybox::renderSkybox(const glm::mat4& proj, const glm::mat4& view) {
 	glDepthMask(GL_FALSE);
 

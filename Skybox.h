@@ -27,6 +27,7 @@ private:
 	void createCubeMap(const std::vector<std::string>& cubeFaces);
 public:
 	Skybox();
+	~Skybox();
 	void renderSkybox(const glm::mat4& proj, const glm::mat4& view);
 
 
