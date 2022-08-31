@@ -7,6 +7,7 @@
 
 #include "World.h"
 
+
 class Application 
 {
 private:
@@ -14,18 +15,13 @@ private:
 	const unsigned int _HEIGHT;
 	const float _RATIO;
 
-
-	World* world;
 	GLFWwindow* window;
-
-	void initLib();
-	GLFWwindow* createWindow();
-public:
-	Application(unsigned int width, unsigned int height);
-	void onUpdate();
-	void endProgram();
 	
-	GLFWwindow* getWindow();
+	World world;
+public:
+	Application(GLFWwindow* window, unsigned int width, unsigned int height);
+	~Application();
+	void onUpdate();
 };
 
 

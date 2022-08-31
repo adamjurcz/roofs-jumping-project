@@ -9,7 +9,6 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-
 #include "ShaderProgram.h"
 #include "Textures.h"
 #include "Camera.h"
@@ -19,6 +18,10 @@
 #include "Player.h"
 #include "Terrain.h"
 #include "Renderer.h"
+#include "Physics.h"
+#include "PhysicCube.h"
+#include "ObjectsManager.h"
+
 
 class World
 {
@@ -29,35 +32,43 @@ private:
 
 	Skybox skybox;
 
-	/// Textures
-	Textures facadeTexture;
-
 	/// Models 
 	Model catModel;
 
-	/// Buildings
-	SimpleBuilding skyscraper;
-	SimpleBuilding lightShape;
+	/// Obj Manager
+	ObjectsManager objectsManager;
+
+	///vector of buildings
+	std::vector<PhysicCube*> buildings;
+
+	///vector of shooted cubes
+	std::vector<PhysicCube*> shootedCubes;
+
+	/// Physics
+	Physics physics;
 
 	/// Terrain
 	Terrain terrain;
-
+	
 	glm::vec3 lightPos;
+
+
 
 	float currentFrame = 0.0f;
 	float lastFrame = 0.0f;
 	float deltaTime = 0.0f;
 	float fullTime = 0.0f;
 
+	GLFWwindow* window;
 	unsigned int _WIDTH;
 	unsigned int _HEIGHT;
 	
-	void generateBuildingLocations();
 
+	void generateBuildingLocations(float size, float height, float span, unsigned int maxLevel);
 
 public:
-	World(unsigned int _WIDTH, unsigned int _HEIGHT);
-
+	World(GLFWwindow* window, unsigned int _WIDTH, unsigned int _HEIGHT);
+	~World();
 	void onUpdate(GLFWwindow* window);
 
 };

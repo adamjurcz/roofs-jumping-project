@@ -72,7 +72,6 @@ void Camera::setPosition(glm::vec3& position) {
 	updateView();
 }
 
-
 void Camera::setProjMatrix(float fov, float aspect, float zNear, float zFar) {
 	this->fov = fov;
 	this->aspect = aspect;
@@ -126,8 +125,6 @@ void Camera::setGravity(float gravity) {
 void Camera::setJumpPower(float jumpPower) {
 	this->_jumpPower = jumpPower;
 }
-
-
 
 
 float Camera::getFov() {

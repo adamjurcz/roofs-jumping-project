@@ -4,6 +4,9 @@ Terrain::Terrain(ShaderProgram& shader) {
     terrainGenerator(shader);
 }
 
+Terrain::~Terrain() {
+}
+
 void Terrain::terrainGenerator(ShaderProgram& shader) {
 	std::vector<Vertex>vertices;
 	std::vector<GLuint>indices;
@@ -62,17 +65,20 @@ void Terrain::terrainGenerator(ShaderProgram& shader) {
     
     Textures marbleTexture = Textures("resources/terrain/white_marble.jpg", GL_TEXTURE_2D, 0, GL_RGB, "0");
     Textures grassTexture = Textures("resources/terrain/grass.jpg", GL_TEXTURE_2D, 1, GL_RGB, "1");
+    
     marbleTexture.bind();
     marbleTexture.texUnit(shader, "texture0", 0);
+    marbleTexture.unbind();
     grassTexture.bind();
     grassTexture.texUnit(shader, "texture1", 1);
-
+    grassTexture.unbind();
+    
     textures.push_back(marbleTexture);
     textures.push_back(grassTexture);
 
     
-    mesh = new Mesh(vertices, indices, textures);
-    vao = mesh->getVao();
+    mesh.reset(new Mesh(vertices, indices, textures));
+    vao.reset(mesh->getVao());
 }
 
 void Terrain::terrainRender(ShaderProgram& shader, glm::vec3& playerPos, float zFar) {
@@ -91,14 +97,15 @@ void Terrain::terrainRender(ShaderProgram& shader, glm::vec3& playerPos, float z
 
     if (start < 0) start = 0;
     if (end > height - 1) end = height - 1;
-    vao->bind();
+
+    
 
     for (int i = 0; i < mesh->getTexture().size(); i++) {
         Textures texture = mesh->getTexture().at(i);
-        //texture.texUnit(*shader, "texture0", 0);
         texture.bind();
     }
 
+    vao->bind();
 
     for (unsigned int strip = start; strip < end; strip++)
     {
@@ -108,6 +115,12 @@ void Terrain::terrainRender(ShaderProgram& shader, glm::vec3& playerPos, float z
             (void*)(sizeof(unsigned) * (width * 2) * strip)); 
     }
     vao->unbind();
+
+    for (int i = 0; i < mesh->getTexture().size(); i++) {
+        Textures texture = mesh->getTexture().at(i);
+        texture.unbind();
+    }
+
 }
 
 int Terrain::positionToStrip(float x) {

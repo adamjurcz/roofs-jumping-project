@@ -23,7 +23,7 @@ private:
 	std::vector<Vertex>vertices;
 	std::vector<GLuint>indices;
 	std::vector<Textures>textures;
-	VAO* vao;
+	VAO vao;
 	
 public:
 	Mesh(std::vector<Vertex> vertices, std::vector<GLuint>indices, std::vector<Textures>textures);

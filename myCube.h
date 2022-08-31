@@ -13,6 +13,9 @@
 namespace {
 	struct myCube {
 		static int myCubeVertexCount;
+		static int myCubeArraySize;
+		static float myCubeSize;
+
 		static float verticesCube[];
 		static float skyboxVertices[];
 		static float myCubeColors[];
@@ -29,9 +32,12 @@ namespace {
 
 
 	int myCube::myCubeVertexCount = 36;
+	
+	int myCube::myCubeArraySize = myCubeVertexCount * 8;
 
+	float myCube::myCubeSize = 0.5f;
 
-	float myCube::verticesCube[] = {
+	float myCube::verticesCube[] = { // 3 pierwsze: x y z wierzchołka, 3 kolejne: x y z normalnej, 2 kolejne: wspolrzedne teksturowania
 			-0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f,  0.0f,
 			 0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f,  0.0f,
 			 0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f,  1.0f,

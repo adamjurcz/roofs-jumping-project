@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
+#include <memory>
 
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
@@ -17,10 +17,16 @@
 #include "SimpleBuilding.h"
 #include "Player.h"
 #include "Terrain.h"
-
+#include "PhysicCube.h"
+#include "Textures.h"
 
 class Renderer
 {
+private:
+	std::unique_ptr<Textures> facadeTexture;
+
+	void initTextures();
+
 public:
 	ShaderProgram lightShader;
 	ShaderProgram blockShader;
@@ -29,15 +35,15 @@ public:
 
 	Renderer();
 
+	~Renderer();
+
 	void renderTerrain(glm::mat4 proj, glm::mat4 view, glm::mat4 model, Terrain* terrain, Player* player);
 
 	void renderObjects(glm::mat4 proj, glm::mat4 view, glm::mat4 model, Model* models);
 
-	void renderSkyscrapers(glm::mat4 proj, glm::mat4 view, glm::mat4 model, SimpleBuilding* simpleBuilding, Player* player, glm::vec3 lightPos);
-
 	void renderLightCube(glm::mat4 proj, glm::mat4 view, glm::mat4 model, SimpleBuilding* lightCube);
+
+	void renderPhysicObject(glm::mat4 proj, glm::mat4 view, glm::mat4 model, PhysicCube* object, Player* player, glm::vec3 lightPos);
 };
-
-
 
 #endif
