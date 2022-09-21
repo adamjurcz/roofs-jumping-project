@@ -4,6 +4,7 @@ PhysicCube::PhysicCube(btVector3 size, const float& mass, const btVector3& color
 			PhysicObject(new btBoxShape(size), mass, color, initialPosition, initialRotation){
 	
 	const btBoxShape* box = static_cast<const btBoxShape*>(this->GetShape());
+	
 	btVector3 halfSize = box->getHalfExtentsWithMargin();
 
 	updateCube(halfSize);
@@ -26,7 +27,7 @@ void PhysicCube::updateCube(const btVector3& halfSize) {
 	float halfHeight = halfSize.y();
 	float halfDepth = halfSize.z();
 
-	float divSquare = (halfHeight / halfWidth);
+	float divRatio = (halfHeight / halfWidth);
 
 	glm::vec3 vertices[8] =
 	{
@@ -54,8 +55,8 @@ void PhysicCube::updateCube(const btVector3& halfSize) {
 	{
 		glm::vec2(0.0f, 0.0f), //0 0 -> 0
 		glm::vec2(1.0f, 0.0f), //1 0 -> 1
-		glm::vec2(1.0f, divSquare), //1 1 -> 2
-		glm::vec2(0.0f, divSquare)  //0 1 -> 3
+		glm::vec2(1.0f, divRatio), //1 1 -> 2
+		glm::vec2(0.0f, divRatio)  //0 1 -> 3
 	};
 
 	/* prawdziwe indeksy teksturowania

@@ -24,6 +24,8 @@ class Renderer
 {
 private:
 	std::unique_ptr<Textures> facadeTexture;
+	std::unique_ptr<Textures> leavesTexture;
+	std::unique_ptr<Textures> stemTexture;
 
 	void initTextures();
 
@@ -43,7 +45,9 @@ public:
 
 	void renderLightCube(glm::mat4 proj, glm::mat4 view, glm::mat4 model, SimpleBuilding* lightCube);
 
-	void renderPhysicObject(glm::mat4 proj, glm::mat4 view, glm::mat4 model, PhysicCube* object, Player* player, glm::vec3 lightPos);
+	void renderTree(glm::mat4 proj, glm::mat4 view, glm::mat4 model, Model* treeStem);
+
+	void renderPhysicObject(glm::mat4 proj, glm::mat4 view, glm::mat4 model, PhysicCube* object, Player* player, glm::vec3* lightPos);
 };
 
 #endif

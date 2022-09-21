@@ -33,6 +33,8 @@ private:
 	Skybox skybox;
 
 	/// Models 
+	Model stemModel;
+
 	Model catModel;
 
 	/// Obj Manager
@@ -49,8 +51,12 @@ private:
 
 	/// Terrain
 	Terrain terrain;
-	
-	glm::vec3 lightPos;
+
+	/// LightShape
+	SimpleBuilding lightShape;
+
+	/// Lights
+	glm::vec3 lightPos[2];
 
 
 

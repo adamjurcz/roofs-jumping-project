@@ -21,6 +21,8 @@ void Model::loadModel() {
     
     this->directory = path.substr(0, path.find_last_of('/'));
 
+    std::cout << "\n------------------\nDIRECTORY PLIKU: " << directory;
+
     processNode(scene->mRootNode, scene);
 }
 
@@ -85,12 +87,13 @@ Mesh Model::processMesh(aiMesh* mesh, const aiScene* scene)
 
         std::vector<Textures> diffuse;
         
-
         for (unsigned int i = 0; i < material->GetTextureCount(aiTextureType_DIFFUSE); i++) {
             aiString file;
             material->GetTexture(aiTextureType_DIFFUSE, i, &file);
 
             std::string fileDirectory = directory + '/' + file.C_Str();
+
+            std::cout << "\nTEXTURA: " << i << "FILE DIRECTORY: " << fileDirectory <<"\n";
 
             Textures loadedTexture = Textures(fileDirectory.c_str(), GL_TEXTURE_2D, GL_TEXTURE0 + i, GL_RGB, "texture_diffuse");
             diffuse.push_back(loadedTexture);

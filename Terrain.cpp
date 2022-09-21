@@ -65,14 +65,14 @@ void Terrain::terrainGenerator(ShaderProgram& shader) {
     
     Textures marbleTexture = Textures("resources/terrain/white_marble.jpg", GL_TEXTURE_2D, 0, GL_RGB, "0");
     Textures grassTexture = Textures("resources/terrain/grass.jpg", GL_TEXTURE_2D, 1, GL_RGB, "1");
-    
+    /*
     marbleTexture.bind();
     marbleTexture.texUnit(shader, "texture0", 0);
     marbleTexture.unbind();
     grassTexture.bind();
     grassTexture.texUnit(shader, "texture1", 1);
     grassTexture.unbind();
-    
+    */
     textures.push_back(marbleTexture);
     textures.push_back(grassTexture);
 
@@ -86,24 +86,24 @@ void Terrain::terrainRender(ShaderProgram& shader, glm::vec3& playerPos, float z
     glm::vec2 B = glm::vec2(width / 2.0f, -height / 2.0f);
     glm::vec2 C = glm::vec2(width / 2.0f, height / 2.0f);
 
-    if (!Maths::checkIfInsideRectangle(A, B, C, glm::vec2(playerPos.x, playerPos.z))) {
-        //player.isNotInBound = true;
-    }
-
     int start = positionToStrip(playerPos.x - zFar - 1.0f);
     int end = positionToStrip(playerPos.x + zFar + 1.0f);
 
-    //std::cout << "start: " << start << " koniec:" << end << std::endl;
 
     if (start < 0) start = 0;
     if (end > height - 1) end = height - 1;
 
-    
-
     for (int i = 0; i < mesh->getTexture().size(); i++) {
         Textures texture = mesh->getTexture().at(i);
-        texture.bind();
+        if (i == 0) {
+            texture.texUnit(shader, "texture0", 0);
+        }
+        if (i == 1) {
+            texture.texUnit(shader, "texture1", 1);
+        }
     }
+
+    glActiveTexture(0);
 
     vao->bind();
 

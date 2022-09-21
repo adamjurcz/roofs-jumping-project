@@ -1,6 +1,6 @@
 #version 330 core
 
-#define ARR_SIZE 4;
+#define ARR_SIZE 2
 
 in vec3 Normal;
 in vec3 FragPosition;
@@ -17,12 +17,10 @@ uniform vec3 sunDirect;
 
 uniform sampler2D texture0;
 
-const float ambientStrength = 0.3f;
-const float specularStrength = 0.5f;
+const float ambientStrength = 0.12f;
+const float specularStrength = 0.25f;
 
 
-
-/*
 vec3 ambientPoint(){
     vec3 _ambient = ambientStrength * lightColor;                           //ambient
     return _ambient;
@@ -48,15 +46,16 @@ vec3 specularPoint(vec3 lightPos){
 
 float lightPowerPoint(vec3 lightPos){
     const float constant = 1.0f;
-    const float linear = 0.09f;
-    const float quadr = 0.032f;
+    const float linear = 0.045f;
+    const float quadr = 0.0075f;
 
-    float dist = length(lightPos - fragPos);
-    float _attenuation = 1.0f / (constant + linear * distance + quadr * (distance * distance));
+    float dist = length(lightPos - FragPosition);
+
+    float _attenuation = 1.0f / (constant + linear * dist + quadr * (dist * dist));
     return _attenuation;
 }
 
-*/
+
 vec3 ambientDirect(){
     vec3 _ambient = ambientStrength * lightColor;                           //ambient
     return _ambient;
@@ -82,15 +81,21 @@ vec3 specularDirect(){
 
 
 void main(){
-    vec3 ambientDir = ambientDirect();
-    vec3 diffuseDir = diffuseDirect();
-    vec3 specularDir = specularDirect();
+    vec3 _ambientDir = ambientDirect();
+    vec3 _diffuseDir = diffuseDirect();
+    vec3 _specularDir = specularDirect();
 
+    vec3 result = _ambientDir + _diffuseDir + _specularDir;
 
+    vec3 _ambientPoint = ambientPoint();
+    for(int i = 0; i < ARR_SIZE; i++){
+        vec3 _diffusePoint = diffusePoint(lightPos[i]);
+        vec3 _specularPoint = specularPoint(lightPos[i]);
+        float _lightPowerPoint = lightPowerPoint(lightPos[i]);
+        
+        result += _ambientPoint * _lightPowerPoint + _diffusePoint * _lightPowerPoint + _specularPoint * _lightPowerPoint;
+    }
 
-
-    
-    vec3 result = ambientDir + diffuseDir + specularDir;
     FragColor = vec4(result, 1.0f) * texture(texture0, texCoord);
 }
 
@@ -181,6 +186,7 @@ vec3 specularPoint(){
     return _specular;
 }
 */
+/*
 vec3 ambientDirect(){
     vec3 _ambient = ambientStrength * lightColor;                           //ambient
     return _ambient;

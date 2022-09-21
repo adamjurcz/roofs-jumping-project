@@ -34,7 +34,7 @@ void ShaderProgram::compileErrors(GLuint shader, const char* type)
 		if (hasCompiled == GL_FALSE)
 		{
 			glGetShaderInfoLog(shader, 1024, NULL, infoLog);
-			std::cout << "SHADER_COMPILATION_ERROR for:" << type << "\n" << infoLog << std::endl;
+			std::cout << "SHADER--ERROR KOMPILACJI for:" << type << "\n" << infoLog << std::endl;
 		}
 	}
 	else
@@ -43,7 +43,7 @@ void ShaderProgram::compileErrors(GLuint shader, const char* type)
 		if (hasCompiled == GL_FALSE)
 		{
 			glGetProgramInfoLog(shader, 1024, NULL, infoLog);
-			std::cout << "SHADER_LINKING_ERROR for:" << type << "\n" << infoLog << std::endl;
+			std::cout << "SHADER--ERROR PODLACZANIA for:" << type << "\n" << infoLog << std::endl;
 		}
 	}
 }

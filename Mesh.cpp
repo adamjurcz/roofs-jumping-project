@@ -29,7 +29,6 @@ void Mesh::update(){
 
 void Mesh::draw(ShaderProgram& shader) {
 	std::string name;
-	vao.bind();
 
 	unsigned int numDiffuse = 1;
 	unsigned int numSpecular = 1;
@@ -48,14 +47,17 @@ void Mesh::draw(ShaderProgram& shader) {
 		}
 
 		textures[i].texUnit(shader, (name + num).c_str(), i);
-		textures[i].bind();
-
 	}
-	
+
+	vao.bind();
+
 	glDrawElements(GL_TRIANGLES, static_cast<unsigned int>(indices.size()), GL_UNSIGNED_INT, 0);
 
 	vao.unbind();
-	glActiveTexture(GL_TEXTURE0);
+	
+	for (int i = 0; i < textures.size(); i++) {
+		textures[i].unbind();
+	}
 }
 
 VAO* Mesh::getVao() {
