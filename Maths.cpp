@@ -25,6 +25,14 @@ glm::vec2 Maths::vectorAB(glm::vec2 A, glm::vec2 B)
 	return glm::vec2(B.x - A.x, B.y - A.y);
 }
 
+unsigned int Maths::randomNumber(unsigned int start, unsigned int end) {
+	std::random_device random;
+	std::mt19937 gen(random());
+	std::uniform_int_distribution<> distr(start, end);
+
+	return static_cast<unsigned int>(distr(gen));
+}
+
 glm::mat4 Maths::btScalarToMat4(btScalar* matrix) {
 	return glm::mat4(
 		matrix[0], matrix[1], matrix[2], matrix[3],

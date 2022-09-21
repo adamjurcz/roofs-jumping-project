@@ -17,7 +17,7 @@ void Physics::initializePhysics() {
 	m_pCollisionConfiguration = new btDefaultCollisionConfiguration();
 	// przetrzymuje informacje nt akcji  (np. kolizja pomiedzy obiektami box-box)
 	m_pDispatcher = new btCollisionDispatcher(m_pCollisionConfiguration);
-	// tworzy drzewo obiektow i na jego podstawie wybiera odpowiednie do danej akcji
+	// tworzy drzewo obiektow i na jego podstawie wybiera odpowiednie obiekty do danej akcji
 	m_pBroadphase = new btDbvtBroadphase();
 	// 
 	m_pSolver = new btSequentialImpulseConstraintSolver();
@@ -36,5 +36,7 @@ void Physics::shutdownPhysics() {
 void Physics::updatePhysicScene(float dt) {
 	if (m_pWorld) {
 		m_pWorld->stepSimulation(dt);
+		m_pWorld->performDiscreteCollisionDetection();
 	}
 }
+

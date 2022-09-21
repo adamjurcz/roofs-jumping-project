@@ -5,7 +5,6 @@ void Textures::readTexture(const char* filename, GLenum format) {
 	int width, height, fileChannels;
 	unsigned char* load = stbi_load(filename, &width, &height, &fileChannels, 0);
 
-	//glEnable(type);
 	//glActiveTexture(GL_TEXTURE0 + unit);
 	glGenTextures(1, &texturesID);
 	glBindTexture(type, texturesID);
@@ -47,7 +46,6 @@ void Textures::texUnit(ShaderProgram& shader, const char* uniform, unsigned int 
 	shader.activate();
 	glActiveTexture(GL_TEXTURE0 + unit);
 	glBindTexture(GL_TEXTURE_2D, texturesID);
-
 
 	GLuint texUni = glGetUniformLocation(shader.getShaderID(), uniform);
 	glUniform1i(texUni, unit);

@@ -190,26 +190,3 @@ glm::vec3& Camera::getRight() {
 	return right;
 }
 
-/*
-void Camera::keyboardInput(GLFWwindow* window, double deltaTime) {
-	_pSpeed = static_cast<float>(deltaTime * 3.4);
-
-	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-	{
-		position += _pSpeed * front;
-	}
-	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-	{
-		position += _pSpeed * -glm::normalize(glm::cross(front, up));
-	}
-	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-	{
-		position += _pSpeed * -front;
-	}
-	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-	{
-		position += _pSpeed * glm::normalize(glm::cross(front, up));
-	}
-	updateView();
-}
-*/
