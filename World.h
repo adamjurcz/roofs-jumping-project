@@ -40,12 +40,6 @@ private:
 	/// Obj Manager
 	ObjectsManager objectsManager;
 
-	///vector of buildings
-	std::vector<PhysicCube*> buildings;
-
-	///vector of shooted cubes
-	std::vector<PhysicCube*> shootedCubes;
-
 	/// Physics
 	Physics physics;
 
@@ -65,12 +59,15 @@ private:
 	float deltaTime = 0.0f;
 	float fullTime = 0.0f;
 
+	const float yWorldScene = 35.0f;
+
 	GLFWwindow* window;
 	unsigned int _WIDTH;
 	unsigned int _HEIGHT;
 	
 
 	void generateBuildingLocations(float size, float height, float span, unsigned int maxLevel);
+	bool checkUnderScene(glm::vec3 position);
 
 public:
 	World(GLFWwindow* window, unsigned int _WIDTH, unsigned int _HEIGHT);

@@ -1,6 +1,7 @@
 #include "Player.h"
 
 Player::Player(GLFWwindow* window, unsigned int _WIDTH, unsigned int _HEIGHT, glm::vec3 startPosition): camera(startPosition, _WIDTH, _HEIGHT){
+	this->startPosition = startPosition;
 	position = startPosition;
 	_MOVABLE_HEIGHT = 63.0f;
 	_SPEED = 10.0f;
