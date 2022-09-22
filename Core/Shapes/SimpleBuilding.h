@@ -1,13 +1,12 @@
 #ifndef SIMPLEBUILDING_H
 #define SIMPLEBUILDING_H
 
-#include "ShaderProgram.h"
-#include "Textures.h"
-#include "VAO.h"
-#include "VBO.h"
-#include "EBO.h"
-
-#include "myCube.h"
+#include "../Shaders/ShaderProgram.h"
+#include "../Scene/Textures.h"
+#include "../VAO.h"
+#include "../VBO.h"
+#include "../EBO.h"
+#include "../Utils/myCube.h"
 
 class SimpleBuilding {
 private:

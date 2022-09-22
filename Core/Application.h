@@ -5,7 +5,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-#include "World.h"
+#include "World/World.h"
 
 
 class Application 

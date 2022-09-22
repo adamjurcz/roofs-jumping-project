@@ -11,12 +11,11 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include "Vertex.h"
-#include "ShaderProgram.h"
-#include "Textures.h"
-#include "VAO.h"
-#include "VBO.h"
-#include "EBO.h"
-#include "ShaderProgram.h"
+#include "../Scene/Textures.h"
+#include "../VAO.h"
+#include "../VBO.h"
+#include "../EBO.h"
+#include "../Shaders/ShaderProgram.h"
 
 class Mesh {
 private:

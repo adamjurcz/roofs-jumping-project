@@ -6,7 +6,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include "Application.h"
+#include "Core/Application.h"
 
 const unsigned int _WIDTH = 1000;
 const unsigned int _HEIGHT = 1000;

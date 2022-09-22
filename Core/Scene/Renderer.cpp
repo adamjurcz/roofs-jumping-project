@@ -1,9 +1,9 @@
 #include "Renderer.h"
 
-Renderer::Renderer() : lightShader("v_light_cube.glsl", NULL, "f_light_cube.glsl"), 
-			blockShader("v_simple.glsl", NULL, "f_simple.glsl"),
-			tryShader("v_try.glsl", NULL, "f_try.glsl"), 
-			terrainShader("v_terrain.glsl", NULL, "f_terrain.glsl") {
+Renderer::Renderer() : lightShader("resources/shaders/v_light_cube.glsl", NULL, "resources/shaders/f_light_cube.glsl"), 
+			blockShader("resources/shaders/v_simple.glsl", NULL, "resources/shaders/f_simple.glsl"),
+			tryShader("resources/shaders/v_try.glsl", NULL, "resources/shaders/f_try.glsl"), 
+			terrainShader("resources/shaders/v_terrain.glsl", NULL, "resources/shaders/f_terrain.glsl") {
 	initTextures();
 }
 
@@ -70,7 +70,7 @@ void Renderer::renderPhysicObject(glm::mat4 proj, glm::mat4 view, glm::mat4 mode
 }
 
 void Renderer::initTextures() {
-	facadeTexture.reset(new Textures("resources/facade.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, "diff"));
+	facadeTexture.reset(new Textures("resources/walls/facade.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, "diff"));
 	leavesTexture.reset(new Textures("resources/tree/maple_leaf.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, "diff"));
 	stemTexture.reset(new Textures("resources/tree/maple_bark.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, "diff"));
 

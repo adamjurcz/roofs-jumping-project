@@ -56,7 +56,7 @@ const std::vector<std::string> Skybox::cubeFaces = {
 Skybox::Skybox() {
 	createCubeMap(this->cubeFaces);
 
-	skyboxShader = new ShaderProgram("v_skybox.glsl", NULL, "f_skybox.glsl");
+	skyboxShader = new ShaderProgram("resources/shaders/v_skybox.glsl", NULL, "resources/shaders/f_skybox.glsl");
 	skyboxShader->setInt("skybox", 0);
 
 	float skyboxVert[108];

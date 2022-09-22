@@ -9,18 +9,19 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include "ShaderProgram.h"
-#include "Textures.h"
-#include "Camera.h"
-#include "Skybox.h"
-#include "Model.h"
-#include "SimpleBuilding.h"
-#include "Player.h"
 #include "Terrain.h"
-#include "Renderer.h"
-#include "Physics.h"
-#include "PhysicCube.h"
-#include "ObjectsManager.h"
+#include "Skybox.h"
+#include "../Shaders/ShaderProgram.h"
+#include "../Scene/Textures.h"
+#include "../Scene/Renderer.h"
+#include "../Scene/ObjectsManager.h"
+#include "../Scene/Player.h"
+#include "../Camera.h"
+#include "../Models/Model.h"
+#include "../Shapes/SimpleBuilding.h"
+#include "../Physics/Physics.h"
+#include "../Physics/PhysicCube.h"
+
 
 
 class World

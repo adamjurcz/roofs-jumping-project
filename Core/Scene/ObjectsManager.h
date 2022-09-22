@@ -9,8 +9,8 @@
 #include <bullet/btBulletDynamicsCommon.h>
 
 
-#include "Physics.h"
-#include "PhysicCube.h"
+#include "../Physics/Physics.h"
+#include "../Physics/PhysicCube.h"
 
 
 typedef std::pair<const btRigidBody*, const btRigidBody*> CollisionPair;

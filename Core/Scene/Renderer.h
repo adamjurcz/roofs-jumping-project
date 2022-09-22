@@ -10,14 +10,13 @@
 #include <assimp/postprocess.h>
 
 
-#include "ShaderProgram.h"
-#include "Skybox.h"
-#include "Model.h"
-#include "Skybox.h"
-#include "SimpleBuilding.h"
-#include "Player.h"
-#include "Terrain.h"
-#include "PhysicCube.h"
+#include "../Shaders/ShaderProgram.h"
+#include "../World/Skybox.h"
+#include "../Models/Model.h"
+#include "../Shapes/SimpleBuilding.h"
+#include "../Scene/Player.h"
+#include "../World/Terrain.h"
+#include "../Physics/PhysicCube.h"
 #include "Textures.h"
 
 class Renderer
