@@ -36,6 +36,10 @@ void ObjectsManager::addShootedCube(btVector3 size, const float& mass, const btV
 	shootedCubes.push_back(obj);
 }
 
+void ObjectsManager::addTreeCoords(btVector3 vec) {
+	treeCoords.push_back(vec);
+}
+
 void ObjectsManager::checkForCollisionUpdate() {
 	std::set<CollisionPair> pairsThisUpdate;
 
@@ -99,4 +103,8 @@ std::vector<PhysicCube*>& ObjectsManager::getBuildings(){
 
 std::vector<PhysicCube*>& ObjectsManager::getShootedCubes() {
 	return shootedCubes;
+}
+
+std::vector<btVector3>& ObjectsManager::getTreeCoords() {
+	return treeCoords;
 }

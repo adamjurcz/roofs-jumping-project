@@ -22,6 +22,8 @@ private:
 	std::vector<PhysicCube*> buildings;
 	std::vector<PhysicCube*> shootedCubes;
 
+	std::vector<btVector3> treeCoords;
+
 	std::shared_ptr<Physics> physics;
 	
 public:
@@ -33,6 +35,8 @@ public:
 	void addBuilding(btVector3 size, const float& mass, const btVector3& color, const btVector3& initialPosition, const btQuaternion& initialRotation);
 	void addShootedCube(btVector3 size, const float& mass, const btVector3& color, const btVector3& initialPosition, const btQuaternion& initialRotation, btVector3 vel);
 
+	void addTreeCoords(btVector3 vec);
+
 	void checkForCollisionUpdate();
 
 	bool raycast(const btVector3& startPosition, const btVector3& direction, btVector3& output, btVector3& normal);
@@ -41,6 +45,7 @@ public:
 	std::vector<PhysicCube*>& getBuildings();
 	std::vector<PhysicCube*>& getShootedCubes();
 
+	std::vector<btVector3>& getTreeCoords();
 };
 
 

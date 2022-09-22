@@ -20,8 +20,6 @@
 
 class Player {
 private:
-	glm::vec3 startPosition;
-
 	Physics physics;
 
 	float _SPEED;
@@ -42,6 +40,8 @@ public:
 
 	
 	Camera camera;
+
+	glm::vec3 startPosition;
 	glm::vec3 position;
 	
 	int jumpState = 0; //5- mocny skok, 4- mniejszy itd 0- brak skoku

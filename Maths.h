@@ -19,7 +19,7 @@ public:
 	static float dotProduct(glm::vec2 A, glm::vec2 B);
 	static glm::vec2 vectorAB(glm::vec2 A, glm::vec2 B);
 
-	unsigned int randomNumber(unsigned int start, unsigned int end);
+	static unsigned int randomNumber(unsigned int start, unsigned int end);
 	
 	static glm::mat4 btScalarToMat4(btScalar* matrix);
 	static glm::vec3 btVector3ToVec3(btVector3* btvector3);
