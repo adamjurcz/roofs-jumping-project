@@ -69,9 +69,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Core\Utils\glad.c">
-      <Filter>Header Files\utils</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Application.cpp">
       <Filter>Source Files\mainFiles</Filter>
     </ClCompile>
@@ -137,6 +134,9 @@
     </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files\mainFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Utils\glad.c">
+      <Filter>Header Files\utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

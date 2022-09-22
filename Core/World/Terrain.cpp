@@ -65,14 +65,7 @@ void Terrain::terrainGenerator(ShaderProgram& shader) {
     
     Textures marbleTexture = Textures("resources/terrain/white_marble.jpg", GL_TEXTURE_2D, 0, GL_RGB, "0");
     Textures grassTexture = Textures("resources/terrain/grass.jpg", GL_TEXTURE_2D, 1, GL_RGB, "1");
-    /*
-    marbleTexture.bind();
-    marbleTexture.texUnit(shader, "texture0", 0);
-    marbleTexture.unbind();
-    grassTexture.bind();
-    grassTexture.texUnit(shader, "texture1", 1);
-    grassTexture.unbind();
-    */
+
     textures.push_back(marbleTexture);
     textures.push_back(grassTexture);
 

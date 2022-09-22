@@ -86,7 +86,6 @@ void Player::checkStability(ObjectsManager& objectsManager) {
 	btVector3 output;
 	btVector3 normal;
 	
-	//wziac pod uwage normalna 0 1 0 i odleglosc 0.1<x<3.1 x- odleglosc od ziemi
 	if (objectsManager.raycast(Maths::vec3ToBtVector3(&position), Maths::vec3ToBtVector3(&down), output, normal)) {
 		glm::vec3 positionObjectVec = position - Maths::btVector3ToVec3(&output);
 		float length = glm::length(positionObjectVec);
