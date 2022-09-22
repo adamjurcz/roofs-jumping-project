@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <glad/glad.h>
-#include "Vertex.h"
+#include "Models/Vertex.h"
 class VBO
 {
 private:

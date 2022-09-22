@@ -146,70 +146,70 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Application.cpp" />
-    <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="EBO.cpp" />
-    <ClCompile Include="Maths.cpp" />
-    <ClCompile Include="ObjectsManager.cpp" />
-    <ClCompile Include="PhysicObject.cpp" />
-    <ClCompile Include="Physics.cpp" />
-    <ClCompile Include="PhysicsCube.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Terrain.cpp" />
-    <ClCompile Include="World.cpp" />
-    <ClCompile Include="glad.c" />
+    <ClCompile Include="Core\Application.cpp" />
+    <ClCompile Include="Core\Camera.cpp" />
+    <ClCompile Include="Core\EBO.cpp" />
+    <ClCompile Include="Core\Models\Mesh.cpp" />
+    <ClCompile Include="Core\Models\Model.cpp" />
+    <ClCompile Include="Core\Physics\PhysicObject.cpp" />
+    <ClCompile Include="Core\Physics\Physics.cpp" />
+    <ClCompile Include="Core\Physics\PhysicsCube.cpp" />
+    <ClCompile Include="Core\Scene\ObjectsManager.cpp" />
+    <ClCompile Include="Core\Scene\Player.cpp" />
+    <ClCompile Include="Core\Scene\Renderer.cpp" />
+    <ClCompile Include="Core\Scene\Textures.cpp" />
+    <ClCompile Include="Core\Shaders\ShaderProgram.cpp" />
+    <ClCompile Include="Core\Shapes\SimpleBuilding.cpp" />
+    <ClCompile Include="Core\Utils\glad.c" />
+    <ClCompile Include="Core\Utils\Maths.cpp" />
+    <ClCompile Include="Core\Utils\stb.cpp" />
+    <ClCompile Include="Core\VAO.cpp" />
+    <ClCompile Include="Core\VBO.cpp" />
+    <ClCompile Include="Core\World\Skybox.cpp" />
+    <ClCompile Include="Core\World\Terrain.cpp" />
+    <ClCompile Include="Core\World\World.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Mesh.cpp" />
-    <ClCompile Include="Model.cpp" />
-    <ClCompile Include="Renderer.cpp" />
-    <ClCompile Include="ShaderProgram.cpp" />
-    <ClCompile Include="SimpleBuilding.cpp" />
-    <ClCompile Include="Skybox.cpp" />
-    <ClCompile Include="stb.cpp" />
-    <ClCompile Include="Textures.cpp" />
-    <ClCompile Include="VAO.cpp" />
-    <ClCompile Include="VBO.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="f_light_cube.glsl" />
-    <None Include="f_simple.glsl" />
-    <None Include="f_skybox.glsl" />
-    <None Include="f_terrain.glsl" />
-    <None Include="f_try.glsl" />
-    <None Include="v_light_cube.glsl" />
-    <None Include="v_simple.glsl" />
-    <None Include="v_skybox.glsl" />
-    <None Include="v_terrain.glsl" />
-    <None Include="v_try.glsl" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Application.h" />
-    <ClInclude Include="Camera.h" />
-    <ClInclude Include="EBO.h" />
-    <ClInclude Include="Maths.h" />
-    <ClInclude Include="ObjectsManager.h" />
-    <ClInclude Include="PhysicCube.h" />
-    <ClInclude Include="PhysicObject.h" />
-    <ClInclude Include="OpenGLMotionState.h" />
-    <ClInclude Include="Physics.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="Terrain.h" />
-    <ClInclude Include="World.h" />
-    <ClInclude Include="Mesh.h" />
-    <ClInclude Include="Model.h" />
-    <ClInclude Include="myCube.h" />
-    <ClInclude Include="Renderer.h" />
-    <ClInclude Include="ShaderProgram.h" />
-    <ClInclude Include="SimpleBuilding.h" />
-    <ClInclude Include="Skybox.h" />
-    <ClInclude Include="Textures.h" />
-    <ClInclude Include="VAO.h" />
-    <ClInclude Include="VBO.h" />
-    <ClInclude Include="Vertex.h" />
+    <ClInclude Include="Core\Application.h" />
+    <ClInclude Include="Core\Camera.h" />
+    <ClInclude Include="Core\EBO.h" />
+    <ClInclude Include="Core\Models\Mesh.h" />
+    <ClInclude Include="Core\Models\Model.h" />
+    <ClInclude Include="Core\Models\Vertex.h" />
+    <ClInclude Include="Core\Physics\OpenGLMotionState.h" />
+    <ClInclude Include="Core\Physics\PhysicCube.h" />
+    <ClInclude Include="Core\Physics\PhysicObject.h" />
+    <ClInclude Include="Core\Physics\Physics.h" />
+    <ClInclude Include="Core\Scene\ObjectsManager.h" />
+    <ClInclude Include="Core\Scene\Player.h" />
+    <ClInclude Include="Core\Scene\Renderer.h" />
+    <ClInclude Include="Core\Scene\Textures.h" />
+    <ClInclude Include="Core\Shaders\ShaderProgram.h" />
+    <ClInclude Include="Core\Shapes\SimpleBuilding.h" />
+    <ClInclude Include="Core\Utils\Maths.h" />
+    <ClInclude Include="Core\Utils\myCube.h" />
+    <ClInclude Include="Core\VAO.h" />
+    <ClInclude Include="Core\VBO.h" />
+    <ClInclude Include="Core\World\Skybox.h" />
+    <ClInclude Include="Core\World\Terrain.h" />
+    <ClInclude Include="Core\World\World.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="brick.png" />
     <Image Include="facade.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\shaders\f_light_cube.glsl" />
+    <None Include="resources\shaders\f_simple.glsl" />
+    <None Include="resources\shaders\f_skybox.glsl" />
+    <None Include="resources\shaders\f_terrain.glsl" />
+    <None Include="resources\shaders\f_try.glsl" />
+    <None Include="resources\shaders\v_light_cube.glsl" />
+    <None Include="resources\shaders\v_simple.glsl" />
+    <None Include="resources\shaders\v_skybox.glsl" />
+    <None Include="resources\shaders\v_terrain.glsl" />
+    <None Include="resources\shaders\v_try.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

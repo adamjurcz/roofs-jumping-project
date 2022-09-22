@@ -8,10 +8,10 @@
 #include <string>
 #include <stb/stb_image.h>
 
-#include "Camera.h"
-#include "ShaderProgram.h"
-#include "VAO.h"
-#include "VBO.h"
+#include "../Camera.h"
+#include "../Shaders/ShaderProgram.h"
+#include "../VAO.h"
+#include "../VBO.h"
 
 class Skybox
 {

@@ -25,9 +25,6 @@
     <Filter Include="Header Files\mainFiles">
       <UniqueIdentifier>{ad17d248-263e-4d02-9492-84e4f5550a25}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\glad">
-      <UniqueIdentifier>{b28537ec-7f3c-4b27-b357-898d9495a678}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\utils">
       <UniqueIdentifier>{234b1671-5f78-4f1b-8c03-01ed42e5a50e}</UniqueIdentifier>
     </Filter>
@@ -67,179 +64,150 @@
     <Filter Include="Source Files\physics">
       <UniqueIdentifier>{a2c56564-fd8f-459f-8fcc-8197437f09bb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\shaders">
+      <UniqueIdentifier>{06b1b63d-d834-448e-b9bf-33ac50d3c6bb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ShaderProgram.cpp">
+    <ClCompile Include="Core\Application.cpp">
+      <Filter>Source Files\mainFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Camera.cpp">
+      <Filter>Source Files\mainFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\EBO.cpp">
+      <Filter>Source Files\mainFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\VAO.cpp">
+      <Filter>Source Files\mainFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\VBO.cpp">
+      <Filter>Source Files\mainFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Models\Mesh.cpp">
+      <Filter>Source Files\models</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Models\Model.cpp">
+      <Filter>Source Files\models</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Physics\PhysicObject.cpp">
+      <Filter>Source Files\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Physics\Physics.cpp">
+      <Filter>Source Files\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Physics\PhysicsCube.cpp">
+      <Filter>Source Files\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Scene\ObjectsManager.cpp">
+      <Filter>Source Files\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Scene\Player.cpp">
+      <Filter>Source Files\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Scene\Renderer.cpp">
+      <Filter>Source Files\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Scene\Textures.cpp">
+      <Filter>Source Files\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Shaders\ShaderProgram.cpp">
       <Filter>Source Files\shaders</Filter>
     </ClCompile>
-    <ClCompile Include="World.cpp">
-      <Filter>Source Files\mainFiles</Filter>
+    <ClCompile Include="Core\Shapes\SimpleBuilding.cpp">
+      <Filter>Source Files\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Utils\Maths.cpp">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Utils\stb.cpp">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\World\Skybox.cpp">
+      <Filter>Source Files\world</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\World\Terrain.cpp">
+      <Filter>Source Files\world</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\World\World.cpp">
+      <Filter>Source Files\world</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files\mainFiles</Filter>
     </ClCompile>
-    <ClCompile Include="EBO.cpp">
-      <Filter>Source Files\mainFiles</Filter>
-    </ClCompile>
-    <ClCompile Include="VAO.cpp">
-      <Filter>Source Files\mainFiles</Filter>
-    </ClCompile>
-    <ClCompile Include="VBO.cpp">
-      <Filter>Source Files\mainFiles</Filter>
-    </ClCompile>
-    <ClCompile Include="glad.c">
-      <Filter>Source Files\glad</Filter>
-    </ClCompile>
-    <ClCompile Include="stb.cpp">
-      <Filter>Source Files\utils</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>Source Files\mainFiles</Filter>
-    </ClCompile>
-    <ClCompile Include="Skybox.cpp">
-      <Filter>Source Files\world</Filter>
-    </ClCompile>
-    <ClCompile Include="Mesh.cpp">
-      <Filter>Source Files\models</Filter>
-    </ClCompile>
-    <ClCompile Include="Model.cpp">
-      <Filter>Source Files\models</Filter>
-    </ClCompile>
-    <ClCompile Include="Renderer.cpp">
-      <Filter>Source Files\scene</Filter>
-    </ClCompile>
-    <ClCompile Include="SimpleBuilding.cpp">
-      <Filter>Source Files\shapes</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files\scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Terrain.cpp">
-      <Filter>Source Files\world</Filter>
-    </ClCompile>
-    <ClCompile Include="Maths.cpp">
-      <Filter>Source Files\utils</Filter>
-    </ClCompile>
-    <ClCompile Include="Application.cpp">
-      <Filter>Source Files\mainFiles</Filter>
-    </ClCompile>
-    <ClCompile Include="Physics.cpp">
-      <Filter>Source Files\physics</Filter>
-    </ClCompile>
-    <ClCompile Include="PhysicObject.cpp">
-      <Filter>Source Files\physics</Filter>
-    </ClCompile>
-    <ClCompile Include="PhysicsCube.cpp">
-      <Filter>Source Files\physics</Filter>
-    </ClCompile>
-    <ClCompile Include="Textures.cpp">
-      <Filter>Source Files\scene</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectsManager.cpp">
-      <Filter>Source Files\scene</Filter>
+    <ClCompile Include="Core\Utils\glad.c">
+      <Filter>Header Files\utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="v_simple.glsl">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="f_simple.glsl">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="v_light_cube.glsl">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="f_light_cube.glsl">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="v_skybox.glsl">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="f_skybox.glsl">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="v_try.glsl">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="f_try.glsl">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="v_terrain.glsl">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="f_terrain.glsl">
-      <Filter>Resource Files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="ShaderProgram.h">
+    <ClInclude Include="Core\Application.h">
+      <Filter>Header Files\mainFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Camera.h">
+      <Filter>Header Files\mainFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\EBO.h">
+      <Filter>Header Files\mainFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\VAO.h">
+      <Filter>Header Files\mainFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\VBO.h">
+      <Filter>Header Files\mainFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Models\Mesh.h">
+      <Filter>Header Files\models</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Models\Model.h">
+      <Filter>Header Files\models</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Models\Vertex.h">
+      <Filter>Header Files\models</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Physics\OpenGLMotionState.h">
+      <Filter>Header Files\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Physics\PhysicCube.h">
+      <Filter>Header Files\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Physics\PhysicObject.h">
+      <Filter>Header Files\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Physics\Physics.h">
+      <Filter>Header Files\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Scene\ObjectsManager.h">
+      <Filter>Header Files\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Scene\Player.h">
+      <Filter>Header Files\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Scene\Renderer.h">
+      <Filter>Header Files\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Scene\Textures.h">
+      <Filter>Header Files\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Shaders\ShaderProgram.h">
       <Filter>Header Files\shaders</Filter>
     </ClInclude>
-    <ClInclude Include="World.h">
-      <Filter>Header Files\mainFiles</Filter>
-    </ClInclude>
-    <ClInclude Include="EBO.h">
-      <Filter>Header Files\mainFiles</Filter>
-    </ClInclude>
-    <ClInclude Include="VAO.h">
-      <Filter>Header Files\mainFiles</Filter>
-    </ClInclude>
-    <ClInclude Include="VBO.h">
-      <Filter>Header Files\mainFiles</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>Header Files\mainFiles</Filter>
-    </ClInclude>
-    <ClInclude Include="myCube.h">
-      <Filter>Header Files\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="Skybox.h">
-      <Filter>Header Files\world</Filter>
-    </ClInclude>
-    <ClInclude Include="Mesh.h">
-      <Filter>Header Files\models</Filter>
-    </ClInclude>
-    <ClInclude Include="Vertex.h">
-      <Filter>Header Files\models</Filter>
-    </ClInclude>
-    <ClInclude Include="Model.h">
-      <Filter>Header Files\models</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer.h">
-      <Filter>Header Files\scene</Filter>
-    </ClInclude>
-    <ClInclude Include="SimpleBuilding.h">
+    <ClInclude Include="Core\Shapes\SimpleBuilding.h">
       <Filter>Header Files\shapes</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files\scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Terrain.h">
-      <Filter>Header Files\world</Filter>
-    </ClInclude>
-    <ClInclude Include="Maths.h">
+    <ClInclude Include="Core\Utils\Maths.h">
       <Filter>Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="Application.h">
-      <Filter>Header Files\mainFiles</Filter>
+    <ClInclude Include="Core\Utils\myCube.h">
+      <Filter>Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="OpenGLMotionState.h">
-      <Filter>Header Files\physics</Filter>
+    <ClInclude Include="Core\World\Skybox.h">
+      <Filter>Header Files\world</Filter>
     </ClInclude>
-    <ClInclude Include="Physics.h">
-      <Filter>Header Files\physics</Filter>
+    <ClInclude Include="Core\World\Terrain.h">
+      <Filter>Header Files\world</Filter>
     </ClInclude>
-    <ClInclude Include="PhysicObject.h">
-      <Filter>Header Files\physics</Filter>
-    </ClInclude>
-    <ClInclude Include="PhysicCube.h">
-      <Filter>Header Files\physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Textures.h">
-      <Filter>Header Files\scene</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjectsManager.h">
-      <Filter>Header Files\scene</Filter>
+    <ClInclude Include="Core\World\World.h">
+      <Filter>Header Files\world</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -249,5 +217,37 @@
     <Image Include="facade.png">
       <Filter>Resource Files\textures</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\shaders\f_light_cube.glsl">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
+    <None Include="resources\shaders\f_simple.glsl">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
+    <None Include="resources\shaders\f_skybox.glsl">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
+    <None Include="resources\shaders\f_terrain.glsl">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
+    <None Include="resources\shaders\f_try.glsl">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
+    <None Include="resources\shaders\v_light_cube.glsl">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
+    <None Include="resources\shaders\v_simple.glsl">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
+    <None Include="resources\shaders\v_skybox.glsl">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
+    <None Include="resources\shaders\v_terrain.glsl">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
+    <None Include="resources\shaders\v_try.glsl">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

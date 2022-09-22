@@ -5,7 +5,7 @@ void Textures::readTexture(const char* filename, GLenum format) {
 	int width, height, fileChannels;
 	unsigned char* load = stbi_load(filename, &width, &height, &fileChannels, 0);
 
-	//glActiveTexture(GL_TEXTURE0 + unit);
+	glActiveTexture(GL_TEXTURE0 + unit);
 	glGenTextures(1, &texturesID);
 	glBindTexture(type, texturesID);
 
@@ -28,7 +28,6 @@ void Textures::readTexture(const char* filename, GLenum format) {
 
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
 	stbi_image_free(load);

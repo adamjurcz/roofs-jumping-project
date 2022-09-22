@@ -11,11 +11,11 @@
 #include <bullet/btBulletDynamicsCommon.h>
 
 
-#include "Camera.h"
-#include "PhysicCube.h"
-#include "Physics.h"
+#include "../Camera.h"
+#include "../Physics/PhysicCube.h"
+#include "../Physics/Physics.h"
 #include "ObjectsManager.h"
-#include "Maths.h"
+#include "../Utils/Maths.h"
 
 
 class Player {

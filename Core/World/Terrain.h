@@ -9,10 +9,10 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include "Vertex.h"
-#include "Textures.h"
-#include "Mesh.h"
-#include "Maths.h"
+#include "../Models/Vertex.h"
+#include "../Models/Mesh.h"
+#include "../Scene/Textures.h"
+#include "../Utils/Maths.h"
 
 class Terrain {
 private:
